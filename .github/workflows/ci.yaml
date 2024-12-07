@@ -37,6 +37,3 @@ jobs:
 
       - name: Build
         run: bun build
-
-      # - name: Test
-      #   run: pnpm test
