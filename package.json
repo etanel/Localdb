@@ -1,5 +1,5 @@
 {
-  "name": "Localdb",
+  "name": "localdb",
   "private": true,
   "scripts": {
     "build": "turbo build",
