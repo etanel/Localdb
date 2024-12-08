@@ -2,7 +2,7 @@
 
 This is an official starter Turborepo.
 
-## Using this example to work with
+## Using this example
 
 Run the following command:
 
