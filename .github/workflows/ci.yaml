@@ -2,36 +2,26 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    types: [opened, synchronize]
+    branches:
+      - main
+      # TODO: remove this once next branch is merged into main
+      - next
 
 jobs:
-  build:
-    name: Build and Test
-    timeout-minutes: 15
+  main-ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - name: Install Bun
-        run: curl -fsSL https://bun.sh/install | bash
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
-      # Optional: Cache Bun dependencies
-      - name: Cache Bun dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.bun
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/*.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: bun install
 
       - name: Build
-        run: bun build --verbose
+        run: bun run build
