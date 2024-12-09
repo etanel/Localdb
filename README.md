@@ -19,7 +19,3 @@ To get started with localDB, clone this repository and follow the installation i
 - **Go (Golang)** v1.20+ (you can download it from [Go Downloads](https://golang.org/dl/))
 
 ### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/localDB.git
-cd localDB
