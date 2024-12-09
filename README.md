@@ -1,6 +1,6 @@
 # localDB 🦅
 
-localDB is a high-performance, lightweight database built using Go (Golang). It is designed to provide fast, reliable, and scalable data storage with a focus on speed and precision. With localDB, you can achieve high throughput, low latency, and easy scalability to meet the needs of modern applications. ⚡
+localDB is a lightweight database built using Go (Golang). It is designed to provide fast, reliable, and scalable data storage with a focus on speed and precision. With localDB, you can achieve high throughput, low latency, and easy scalability to meet the needs of modern applications. ⚡
 
 ## Features
 
