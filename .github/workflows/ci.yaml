@@ -2,41 +2,24 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    types: [opened, synchronize]
+    branches:
+      - main
 
 jobs:
-  build:
-    name: Build and Test
-    timeout-minutes: 15
+  main-ci:
     runs-on: ubuntu-latest
-    # To use Remote Caching, uncomment the next lines and follow the steps below.
-    # env:
-    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-    #  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "pnpm"
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: bun install
 
       - name: Build
-        run: bun build
-
-      # - name: Test
-      #   run: pnpm test
+        run: bun run build
